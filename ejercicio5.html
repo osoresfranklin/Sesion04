@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Área de Triángulo Rectángulo</title>
+    <link rel="stylesheet" href="css/estilo5.css">
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculadora de Área de Triángulo Rectángulo</h2>
+        <input type="number" id="base" placeholder="Ingresa la base (cm)">
+        <input type="number" id="altura" placeholder="Ingresa la altura (cm)">
+        <button onclick="calcularArea()">Calcular Área</button>
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function calcularArea() {
+            const base = parseFloat(document.getElementById('base').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+
+            if (isNaN(base) || isNaN(altura) || base <= 0 || altura <= 0) {
+                alert('Por favor, ingresa valores válidos y mayores a cero.');
+                return;
+            }
+
+            const area = 0.5 * base * altura;
+
+            document.getElementById('resultado').textContent = 'El área del triángulo es: ' + area.toFixed(2) + ' cm²';
+        }
+    </script>
+</body>
+</html>

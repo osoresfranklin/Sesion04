@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoría de Nota Promedio</title>
+    <link rel="stylesheet" href="css/estilo7.css">
+</head>
+<body>
+    <div class="calculator">
+        <h2>Categoría de Nota Promedio</h2>
+        <input type="number" id="notaPromedio" placeholder="Ingresa la nota promedio" min="0" max="20">
+        <button onclick="obtenerCategoria()">Obtener Categoría</button>
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function obtenerCategoria() {
+            const notaPromedio = parseFloat(document.getElementById('notaPromedio').value);
+            
+            if (isNaN(notaPromedio) || notaPromedio < 0 || notaPromedio > 20) {
+                alert('Por favor, ingresa una nota válida entre 0 y 20.');
+                return;
+            }
+
+            let categoria;
+
+            if (notaPromedio >= 0 && notaPromedio <= 5) {
+                categoria = 'Pésimo';
+            } else if (notaPromedio >= 6 && notaPromedio <= 10) {
+                categoria = 'Malo';
+            } else if (notaPromedio >= 11 && notaPromedio <= 14) {
+                categoria = 'Regular';
+            } else if (notaPromedio >= 15 && notaPromedio <= 17) {
+                categoria = 'Bueno';
+            } else if (notaPromedio >= 18 && notaPromedio <= 20) {
+                categoria = 'Excelente';
+            }
+
+            document.getElementById('resultado').textContent = 'La categoría es: ' + categoria;
+        }
+    </script>
+</body>
+</html>
+
